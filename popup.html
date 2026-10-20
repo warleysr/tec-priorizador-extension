@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Priorizador TEC Concursos</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="popup-header">
+      <div class="popup-title-group">
+        <span class="popup-logo">🎯</span>
+        <div>
+          <h2>Priorizador TEC</h2>
+          <span class="popup-subtitle">Estratégia de Edital & Questões</span>
+        </div>
+      </div>
+      <select id="popup-select-concurso" class="popup-select"></select>
+    </header>
+
+    <!-- Overview Card -->
+    <div class="popup-overview-card">
+      <div class="popup-stat-row">
+        <div class="popup-stat-col">
+          <span class="popup-stat-label">Pontos da Prova</span>
+          <span class="popup-stat-number" id="popup-total-pontos">--</span>
+        </div>
+        <div class="popup-stat-divider"></div>
+        <div class="popup-stat-col">
+          <span class="popup-stat-label">Cobertura Ponderada</span>
+          <span class="popup-stat-number" id="popup-cobertura-perc">--%</span>
+        </div>
+        <div class="popup-stat-divider"></div>
+        <div class="popup-stat-col">
+          <span class="popup-stat-label">Pts Restantes</span>
+          <span class="popup-stat-number" id="popup-pontos-restantes" style="color: #ef4444;">--</span>
+        </div>
+      </div>
+
+      <!-- Barra de Progresso Global -->
+      <div class="popup-progress-container">
+        <div class="popup-progress-bar">
+          <div class="popup-progress-fill" id="popup-progress-fill" style="width: 0%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seção de Próximos Cadernos / Subpastas Prioritárias -->
+    <div class="popup-section">
+      <div class="popup-section-header">
+        <span class="popup-section-title">⚡ Estude Agora (Mais Críticos)</span>
+      </div>
+      <div class="popup-list" id="popup-prioridades-list">
+        <!-- Renderizado dinamicamente via JS -->
+      </div>
+    </div>
+
+    <!-- Footer / Ações -->
+    <footer class="popup-footer">
+      <button class="popup-btn popup-btn-secondary" id="popup-open-tec-btn">
+        🌐 Abrir TEC Concursos
+      </button>
+      <button class="popup-btn popup-btn-primary" id="popup-open-config-btn">
+        ⚙️ Configurar Edital
+      </button>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

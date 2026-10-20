@@ -1,0 +1,1034 @@
+/* =========================================================================
+   TEC Concursos - Priorizador Inteligente de Estudos
+   Estilos injetados na página
+   ========================================================================= */
+
+:root {
+  --tec-prio-primary: #0284c7;
+  --tec-prio-primary-hover: #0369a1;
+  --tec-prio-primary-light: #f0f9ff;
+  --tec-prio-text: #0f172a;
+  --tec-prio-muted: #64748b;
+  --tec-prio-border: #e2e8f0;
+  --tec-prio-card-bg: #ffffff;
+  
+  --tec-prio-red: #dc2626;
+  --tec-prio-red-bg: #fee2e2;
+  --tec-prio-red-border: #fca5a5;
+  
+  --tec-prio-orange: #ea580c;
+  --tec-prio-orange-bg: #ffedd5;
+  --tec-prio-orange-border: #fdba74;
+  
+  --tec-prio-yellow: #ca8a04;
+  --tec-prio-yellow-bg: #fef9c3;
+  --tec-prio-yellow-border: #fde047;
+  
+  --tec-prio-green: #16a34a;
+  --tec-prio-green-bg: #f0fdf4;
+  --tec-prio-green-border: #bbf7d0;
+
+  --tec-prio-purple: #7c3aed;
+  --tec-prio-purple-bg: #f5f3ff;
+  --tec-prio-purple-border: #ddd6fe;
+}
+
+/* ---------- Botão Lançador Flutuante / Header ---------- */
+.tec-prio-launcher-btn {
+  position: fixed;
+  top: 75px;
+  right: 25px;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff !important;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  user-select: none;
+}
+
+.tec-prio-launcher-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.45);
+  background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+}
+
+.tec-prio-launcher-badge {
+  background: #f97316;
+  color: #fff;
+  border-radius: 9999px;
+  padding: 1px 7px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* ---------- Banner de Contexto Removido ---------- */
+.tec-prio-context-banner,
+#tec-prio-context-banner {
+  display: none !important;
+}
+
+.tec-prio-context-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tec-prio-context-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tec-prio-context-subtitle {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.tec-prio-context-stats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tec-prio-stat-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f8fafc;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.tec-prio-stat-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #64748b;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.tec-prio-stat-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* ---------- Badges de Prioridade nas Subpastas e Cadernos ---------- */
+.tec-prio-row-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.tec-prio-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.3;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.tec-prio-badge-critica {
+  background: var(--tec-prio-red-bg);
+  color: var(--tec-prio-red);
+  border: 1px solid var(--tec-prio-red-border);
+}
+
+.tec-prio-badge-alta {
+  background: var(--tec-prio-orange-bg);
+  color: var(--tec-prio-orange);
+  border: 1px solid var(--tec-prio-orange-border);
+}
+
+.tec-prio-badge-media {
+  background: var(--tec-prio-yellow-bg);
+  color: #854d0e;
+  border: 1px solid var(--tec-prio-yellow-border);
+}
+
+.tec-prio-badge-baixa {
+  background: var(--tec-prio-green-bg);
+  color: var(--tec-prio-green);
+  border: 1px solid var(--tec-prio-green-border);
+}
+
+.tec-prio-badge-concluido {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+}
+
+.tec-prio-badge-unassigned {
+  background: #f8fafc;
+  color: #64748b;
+  border: 1px dashed #cbd5e1;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.tec-prio-badge-unassigned:hover {
+  background: #f0f9ff;
+  color: #0284c7;
+  border-color: #0284c7;
+}
+
+.tec-prio-group-tag {
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tec-prio-mini-progress {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.tec-prio-mini-bar-bg {
+  width: 45px;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 3px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.tec-prio-mini-bar-fill {
+  height: 100%;
+  background: #0284c7;
+  border-radius: 3px;
+}
+
+/* ---------- Indicadores no Índice do Caderno ("O que mais cai") ---------- */
+.tec-prio-indice-box {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.tec-prio-indice-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+}
+
+.tec-prio-indice-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tec-prio-top-topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.tec-prio-topic-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  position: relative;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.tec-prio-topic-card:hover {
+  transform: translateY(-1px);
+  border-color: #0284c7;
+}
+
+.tec-prio-topic-rank {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #f97316;
+}
+
+.tec-prio-topic-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 6px;
+  padding-right: 25px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tec-prio-topic-meter {
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.tec-prio-topic-meter-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #f97316 0%, #ef4444 100%);
+  border-radius: 3px;
+}
+
+.tec-prio-topic-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #64748b;
+}
+
+.tec-prio-tree-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.tec-prio-tree-badge-hot1 {
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fca5a5;
+  animation: tecPrioPulse 2s infinite;
+}
+
+.tec-prio-tree-badge-hot2 {
+  background: #ffedd5;
+  color: #ea580c;
+  border: 1px solid #fdba74;
+}
+
+.tec-prio-tree-badge-medium {
+  background: #fef9c3;
+  color: #ca8a04;
+  border: 1px solid #fde047;
+}
+
+@keyframes tecPrioPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+.tec-prio-highlight-row {
+  background-color: rgba(254, 243, 199, 0.3) !important;
+  border-radius: 4px;
+}
+
+/* ---------- MODAL PRINCIPAL ---------- */
+.tec-prio-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.tec-prio-modal-overlay.tec-prio-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tec-prio-modal-container {
+  background: #ffffff;
+  width: 950px;
+  max-width: 96vw;
+  max-height: 92vh;
+  border-radius: 12px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: tecPrioModalIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes tecPrioModalIn {
+  from { transform: scale(0.96) translateY(10px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.tec-prio-modal-header {
+  padding: 16px 24px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tec-prio-modal-header-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tec-prio-modal-header-title h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.tec-prio-modal-close {
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: #64748b;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.tec-prio-modal-close:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.tec-prio-modal-nav {
+  display: flex;
+  border-bottom: 1px solid #e2e8f0;
+  background: #ffffff;
+  padding: 0 24px;
+}
+
+.tec-prio-nav-btn {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.tec-prio-nav-btn:hover {
+  color: #0284c7;
+}
+
+.tec-prio-nav-btn.tec-prio-nav-active {
+  color: #0284c7;
+  border-bottom-color: #0284c7;
+}
+
+.tec-prio-modal-body {
+  padding: 20px 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.tec-prio-tab-content {
+  display: none;
+}
+
+.tec-prio-tab-content.tec-prio-tab-active {
+  display: block;
+}
+
+/* ---------- DRAG & DROP & SUBPASTAS NÃO VINCULADAS ---------- */
+.tec-prio-unassigned-box {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+}
+
+.tec-prio-unassigned-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.tec-prio-unassigned-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tec-prio-unassigned-pool {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 48px;
+  padding: 8px;
+  background: #ffffff;
+  border: 2px dashed #cbd5e1;
+  border-radius: 6px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.tec-prio-unassigned-pool.tec-prio-drag-over {
+  border-color: #0284c7;
+  background: #f0f9ff;
+}
+
+/* Card/Chip de Subpasta Arrastável */
+.tec-prio-draggable-chip {
+  background: #ffffff;
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e293b;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: grab;
+  user-select: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.tec-prio-draggable-chip:hover {
+  transform: translateY(-2px);
+  border-color: #0284c7;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+}
+
+.tec-prio-draggable-chip:active {
+  cursor: grabbing;
+}
+
+.tec-prio-draggable-chip.tec-prio-dragging {
+  opacity: 0.4;
+  transform: scale(0.95);
+}
+
+.tec-prio-chip-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tec-prio-chip-btn {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 11px;
+  color: #334155;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.tec-prio-chip-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+/* Zona de Soltura nos Grupos */
+.tec-prio-dropzone {
+  min-height: 52px;
+  padding: 8px;
+  background: #ffffff;
+  border: 2px dashed #e2e8f0;
+  border-radius: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  transition: all 0.2s ease;
+  margin-top: 8px;
+}
+
+.tec-prio-dropzone.tec-prio-drag-over {
+  border-color: #0284c7;
+  background: #f0f9ff;
+  box-shadow: inset 0 0 0 2px rgba(2, 132, 199, 0.2);
+}
+
+.tec-prio-dropzone-empty {
+  font-size: 12px;
+  color: #94a3b8;
+  font-style: italic;
+  padding: 6px 10px;
+  pointer-events: none;
+}
+
+/* Card de Grupo Configurado */
+.tec-prio-group-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background: #f8fafc;
+}
+
+.tec-prio-group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.tec-prio-group-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Formulários */
+.tec-prio-form-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  align-items: flex-end;
+}
+
+.tec-prio-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.tec-prio-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.tec-prio-input, .tec-prio-select {
+  padding: 8px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #0f172a;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.tec-prio-input:focus, .tec-prio-select:focus {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.tec-prio-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.tec-prio-btn-primary {
+  background: #0284c7;
+  color: #ffffff;
+}
+
+.tec-prio-btn-primary:hover {
+  background: #0369a1;
+}
+
+.tec-prio-btn-secondary {
+  background: #f1f5f9;
+  color: #334155;
+  border-color: #cbd5e1;
+}
+
+.tec-prio-btn-secondary:hover {
+  background: #e2e8f0;
+}
+
+.tec-prio-btn-danger {
+  background: #fee2e2;
+  color: #dc2626;
+  border-color: #fca5a5;
+}
+
+.tec-prio-btn-danger:hover {
+  background: #fecaca;
+}
+
+.tec-prio-btn-success {
+  background: #10b981;
+  color: #ffffff;
+}
+
+.tec-prio-btn-success:hover {
+  background: #059669;
+}
+
+/* Tabela de Matriz */
+.tec-prio-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.tec-prio-table th {
+  background: #f1f5f9;
+  text-align: left;
+  padding: 10px 12px;
+  font-weight: 700;
+  color: #334155;
+  border-bottom: 2px solid #cbd5e1;
+}
+
+.tec-prio-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #0f172a;
+}
+
+.tec-prio-table tr:hover td {
+  background: #f8fafc;
+}
+
+/* Footer do Modal */
+.tec-prio-modal-footer {
+  padding: 14px 24px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ---------- DIALOG / PROGRESS OVERLAY DE ANÁLISE AUTOMÁTICA ---------- */
+.tec-prio-progress-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 1000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.tec-prio-progress-box {
+  background: #ffffff;
+  width: 520px;
+  max-width: 90vw;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: center;
+}
+
+.tec-prio-progress-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.tec-prio-progress-bar-container {
+  width: 100%;
+  height: 10px;
+  background: #e2e8f0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.tec-prio-progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #0284c7 0%, #10b981 100%);
+  border-radius: 5px;
+  transition: width 0.2s ease;
+}
+
+.tec-prio-progress-status {
+  font-size: 13px;
+  color: #475569;
+  min-height: 20px;
+}
+
+.tec-prio-progress-details {
+  font-size: 11px;
+  color: #94a3b8;
+  max-height: 80px;
+  overflow-y: auto;
+  text-align: left;
+  background: #f8fafc;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+/* ---------- CONTROLES DA ABA "O QUE MAIS CAI" (FILTRO & ORDENAÇÃO) ---------- */
+.tec-prio-raiox-controls {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.tec-prio-raiox-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.tec-prio-raiox-filter-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tec-prio-raiox-filter-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #475569;
+  white-space: nowrap;
+}
+
+.tec-prio-raiox-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #0284c7;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tec-prio-raiox-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+.tec-prio-raiox-card-critica {
+  border-left-color: var(--tec-prio-red);
+}
+
+.tec-prio-raiox-card-alta {
+  border-left-color: var(--tec-prio-orange);
+}
+
+.tec-prio-raiox-card-media {
+  border-left-color: var(--tec-prio-yellow);
+}
+
+.tec-prio-raiox-card-baixa {
+  border-left-color: var(--tec-prio-green);
+}
+
+.tec-prio-raiox-card-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+}
+
+.tec-prio-raiox-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tec-prio-raiox-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.tec-prio-raiox-topics-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.tec-prio-raiox-topic-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  background: #f8fafc;
+  border-radius: 6px;
+  border: 1px solid #f1f5f9;
+  font-size: 12px;
+}
+
+.tec-prio-raiox-topic-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.tec-prio-raiox-topic-name {
+  font-weight: 600;
+  color: #1e293b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tec-prio-raiox-topic-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+/* ---------- ORDENAÇÃO NA LISTAGEM DA PASTA (CRITICIDADE & TEMAS) ---------- */
+.tec-prio-rank-pill {
+  background: #0284c7;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 1px 6px;
+  margin-right: 6px;
+  display: inline-block;
+  line-height: 1.4;
+  vertical-align: middle;
+}
+
+.tec-prio-tema-relevante-badge {
+  background: #fff7ed;
+  color: #ea580c;
+  border: 1px solid #fed7aa;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  margin-left: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  vertical-align: middle;
+}
+
+.tec-prio-tema-top {
+  background: #fef2f2;
+  color: #dc2626;
+  border-color: #fca5a5;
+  font-weight: 700;
+  box-shadow: 0 1px 2px rgba(220, 38, 38, 0.15);
+}
+
+.tec-prio-link-ordenar {
+  color: #0284c7;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tec-prio-link-ordenar:hover {
+  color: #0369a1;
+  text-decoration: underline;
+}
+
+.tec-prio-link-ordenar-ativo {
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid #bae6fd;
+  text-decoration: none !important;
+}
+
+
